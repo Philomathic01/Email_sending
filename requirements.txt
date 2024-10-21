@@ -1,0 +1,5 @@
+flask
+requests
+smtplib
+email.mime.text
+email_sender
