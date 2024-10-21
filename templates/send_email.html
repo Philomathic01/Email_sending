@@ -1,0 +1,39 @@
+<!-- templates/send_email.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Send an Email</h1>
+        <form action="/send" method="POST">
+            <label for="to">Recipient's Email:</label>
+            <input type="email" id="to" name="to" required><br><br>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="6" cols="50" required></textarea><br><br>
+
+            <button type="submit">Send Email</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
