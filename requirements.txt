@@ -1,5 +1,1 @@
-flask
-requests
-smtplib
-email.mime.text
-email_sender
+Flask==2.3.2
